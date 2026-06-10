@@ -1,0 +1,40 @@
+name: Post news
+
+on:
+  schedule:
+    # 每小时第 17 分钟运行（避开整点的 Actions 高峰排队）
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "只打印将发布的内容，不真实发布"
+        type: boolean
+        default: false
+
+concurrency:
+  group: post-news
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Post news bubbles
+        run: node index.mjs
+        env:
+          TWOSOMEONE_BOT_API_KEY: ${{ secrets.TWOSOMEONE_BOT_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}

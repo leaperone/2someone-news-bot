@@ -1,0 +1,17 @@
+{
+  "name": "2someone-news-bot",
+  "version": "1.0.0",
+  "description": "2SOMEone 官方资讯机器人 —— 定时拉取 RSS 并发布为泡泡动态。Fork 这个仓库即可拥有你自己的机器人。",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node index.mjs",
+    "dry-run": "DRY_RUN=1 node index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
