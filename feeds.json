@@ -6,5 +6,21 @@
   {
     "name": "少数派",
     "url": "https://sspai.com/feed"
+  },
+  {
+    "name": "机核",
+    "url": "https://www.gcores.com/rss"
+  },
+  {
+    "name": "游研社",
+    "url": "https://www.yystv.cn/rss/feed"
+  },
+  {
+    "name": "爱范儿",
+    "url": "https://www.ifanr.com/feed"
+  },
+  {
+    "name": "Solidot",
+    "url": "https://www.solidot.org/index.rss"
   }
 ]
