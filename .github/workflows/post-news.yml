@@ -2,8 +2,8 @@ name: Post news
 
 on:
   schedule:
-    # 每小时第 17 分钟运行（避开整点的 Actions 高峰排队）
-    - cron: "17 * * * *"
+    # 北京时间 09:17 / 21:17 运行，避免资讯流刷屏。
+    - cron: "17 1,13 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -38,3 +38,4 @@ jobs:
         env:
           TWOSOMEONE_BOT_API_KEY: ${{ secrets.TWOSOMEONE_BOT_API_KEY }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          MAX_POSTS_PER_RUN: "1"
