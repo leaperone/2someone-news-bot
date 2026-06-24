@@ -2,8 +2,8 @@ name: Post news
 
 on:
   schedule:
-    # 北京时间 09:17 / 13:17 / 17:17 / 21:17 运行，避免资讯流刷屏。
-    - cron: "17 1,5,9,13 * * *"
+    # 北京时间 09:17 / 21:17 运行，避免资讯流刷屏。
+    - cron: "17 1,13 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
