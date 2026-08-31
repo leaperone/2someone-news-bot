@@ -1,3 +1,9 @@
 node_modules/
 .env
 *.log
+
+# Local planning artifacts
+/.planning/
+
+# Local Git worktrees
+/.worktrees/
